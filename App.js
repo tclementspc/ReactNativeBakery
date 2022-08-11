@@ -1,9 +1,9 @@
 import { StatusBar } from "expo-status-bar";
 import { ActivityIndicator, StyleSheet, View, Text } from "react-native";
-import CarouselComponent from "./screens/components/CarouselComponent";
-import HomeScreen from "./screens/HomeScreen";
+import MainComponent from "./screens/MainComponent";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useState, useEffect } from "react";
+import { NavigationContainer } from "@react-navigation/native";
 
 const Loading = () => {
   return (
@@ -43,9 +43,9 @@ export default App = () => {
       {loading ? (
         <Loading />
       ) : viewedCarousel ? (
-        <HomeScreen />
+        <NavigationContainer />
       ) : (
-        <CarouselComponent />
+        <MainComponent />
       )}
 
       <StatusBar style="auto" />

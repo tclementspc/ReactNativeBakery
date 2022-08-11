@@ -1,8 +1,5 @@
-import { Image, Text, Platform, View, Alert, ToastAndroid } from "react-native";
+import { Text, Platform, View } from "react-native";
 import Constants from "expo-constants";
-import DirectoryScreen from "./DirectoryScreen";
-import CampsiteInfoScreen from "./CampsiteInfoScreen";
-import HomeScreen from "./HomeScreen";
 import { createStackNavigator } from "@react-navigation/stack";
 import {
   DrawerContentScrollView,
@@ -12,16 +9,10 @@ import {
 import AboutScreen from "./components/AboutScreen";
 import ContactScreen from "./ContactScreen";
 import { Icon } from "react-native-elements";
-import CarouselComponent from "./components/CarouselComponent";
 import HomeScreen from "./HomeScreen";
 import { StyleSheet } from "react-native";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { fetchPartners } from "../features/partners/partnersSlice";
-import { fetchCampsites } from "../features/campsites/campsitesSlice";
-import { fetchPromotions } from "../features/promotions/promotionsSlice";
-import { fetchComments } from "../features/comments/commentsSlice";
-import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
 const Drawer = createDrawerNavigator();
 
@@ -33,38 +24,12 @@ const screenOptions = {
 const HomeNavigator = () => {
   const Stack = createStackNavigator();
   return (
-    <Stack.Navigator screenOptions={screenOptions}>
+    <Stack.Navigator initialRouteName="Home" screenOptions={screenOptions}>
       <Stack.Screen
         name="Home"
         component={HomeScreen}
         options={({ navigation }) => ({
           title: "Home",
-          headerLeft: () => (
-            <Icon
-              name="home"
-              type="font-awesome"
-              iconStyle={styles.stackIcon}
-              onPress={() => navigation.toggleDrawer()}
-            />
-          ),
-        })}
-      />
-    </Stack.Navigator>
-  );
-};
-
-const RollsNavigator = () => {
-  const Stack = createStackNavigator();
-  return (
-    <Stack.Navigator
-      initialRouteName="Rolls Component"
-      screenOptions={screenOptions}
-    >
-      <Stack.Screen
-        name="Rolls Directory"
-        component={CarouselComponent}
-        options={({ navigation }) => ({
-          title: "Rolls Directory",
           headerLeft: () => (
             <Icon
               name="list"
@@ -73,13 +38,6 @@ const RollsNavigator = () => {
               onPress={() => navigation.toggleDrawer()}
             />
           ),
-        })}
-      />
-      <Stack.Screen
-        name="Carousel Items"
-        component={CarouselItem}
-        options={({ route }) => ({
-          title: route.params.item.name,
         })}
       />
     </Stack.Navigator>
@@ -163,28 +121,12 @@ const Main = () => {
       >
         <Drawer.Screen
           name="Home"
-          component={HomeNavigator}
+          component={RollsNavigator}
           options={{
             title: "Home",
             drawerIcon: ({ color }) => (
               <Icon
                 name="home"
-                type="font-awesome"
-                size={24}
-                iconStyle={{ width: 24 }}
-                color={color}
-              />
-            ),
-          }}
-        />
-        <Drawer.Screen
-          name="Rolls Directory"
-          component={RollsNavigator}
-          options={{
-            title: "Rolls Directory",
-            drawerIcon: ({ color }) => (
-              <Icon
-                name="list"
                 type="font-awesome"
                 size={24}
                 iconStyle={{ width: 24 }}
@@ -238,10 +180,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flex: 1,
     flexDirection: "row",
+    backgroundColor: "#9F0933",
   },
 
   drawerHeaderText: {
-    color: "#9F0933",
+    color: "#ffffff",
     fontSize: 24,
     fontWeight: "bold",
   },
@@ -253,7 +196,7 @@ const styles = StyleSheet.create({
 
   stackIcon: {
     marginLeft: 10,
-    color: "#9F0933",
+    color: "#ffffff",
     fontSize: 24,
   },
 });

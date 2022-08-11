@@ -1,6 +1,7 @@
-import { Text, View, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import React from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import CarouselComponent from "./components/CarouselComponent";
 
 export default HomeScreen = () => {
   const clearCarousel = async () => {
@@ -13,11 +14,7 @@ export default HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text>DECADENT BAKERY</Text>
-      <Text>Decadent! Delicious! Delivered</Text>
-      <TouchableOpacity onPress={() => clearCarousel()}>
-        <Text>LOOK AT THESE ROLLS!</Text>
-      </TouchableOpacity>
+      <CarouselComponent />
     </View>
   );
 };
@@ -27,9 +24,5 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  },
-  text: {
-    color: "#9F0933",
-    textAlign: "center",
   },
 });

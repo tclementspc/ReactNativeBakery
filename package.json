@@ -27,7 +27,12 @@
     "react-native-screens": "~3.11.1",
     "react-native-svg": "^12.4.3",
     "react-native-web": "0.17.7",
-    "expo-constants": "~13.1.1"
+    "expo-constants": "~13.1.1",
+    "@react-navigation/drawer": "5.12.9",
+    "expo-secure-store": "~11.2.0",
+    "redux": "4.1.2",
+    "react-redux": "7.2.6",
+    "@reduxjs/toolkit": "1.7.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
