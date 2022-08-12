@@ -38,7 +38,7 @@ export default NextButton = ({ percentage, scrollTo }) => {
           circumference - (circumference * value.value) / 100;
 
         if (progressRef?.current) {
-          progressRef.current.setNative({
+          progressRef.current.setNativeProps({
             strokeDashoffset,
           });
         }
@@ -57,13 +57,14 @@ export default NextButton = ({ percentage, scrollTo }) => {
         <G rotation="-90" origin={center} />
 
         <Circle
-          stroke="#E6E7E8"
+          stroke="#F4338F"
           cx={center}
           cy={center}
           r={radius}
           strokeWidth={strokeWidth}
         />
         <Circle
+          ref={progressRef}
           stroke="#E6E7E8"
           cx={center}
           cy={center}

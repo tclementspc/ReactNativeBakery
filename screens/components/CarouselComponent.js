@@ -38,9 +38,10 @@ export default CarouselComponent = () => {
           style={{
             color: "#9F0933",
             textAlign: "center",
-            fontSize: 28,
+            fontSize: 26,
             fontWeight: "bold",
-            paddingTop: 75,
+            paddingTop: 15,
+            paddingBottom: 1,
           }}
         >
           DECADENT BAKERY

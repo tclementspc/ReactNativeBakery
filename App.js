@@ -1,9 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import { ActivityIndicator, StyleSheet, View, Text } from "react-native";
-import MainComponent from "./screens/MainComponent";
+import Main from "./screens/MainComponent";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useState, useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
+import { registerRootComponent } from "expo";
 
 const Loading = () => {
   return (
@@ -39,24 +40,17 @@ export default App = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      {loading ? (
-        <Loading />
-      ) : viewedCarousel ? (
-        <NavigationContainer />
-      ) : (
-        <MainComponent />
-      )}
-
+    <NavigationContainer>
+      {loading ? <Loading /> : <Main />}
       <StatusBar style="auto" />
-    </View>
+    </NavigationContainer>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "red",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -71,3 +65,4 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
+registerRootComponent(App);

@@ -1,4 +1,4 @@
-import { ScrollView, Text } from "react-native";
+import { ScrollView, Text, StyleSheet } from "react-native";
 import { Card } from "react-native-elements";
 import * as Animatable from "react-native-animatable";
 
@@ -21,3 +21,11 @@ const ContactScreen = () => {
 };
 
 export default ContactScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: 28,
+  },
+});

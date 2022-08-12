@@ -1,8 +1,5 @@
-import { ScrollView, Text } from "react-native";
-import { Card, Avatar, ListItem } from "react-native-elements";
-import { useSelector } from "react-redux";
-import { baseUrl } from "../shared/baseUrl";
-import Loading from "../components/LoadingComponent";
+import { ScrollView, Text, StyleSheet } from "react-native";
+import { Card } from "react-native-elements";
 import * as Animatable from "react-native-animatable";
 
 const AboutScreen = () => {
@@ -14,7 +11,7 @@ const AboutScreen = () => {
           <Card.Divider />
           <Text style={{ margin: 10 }}>
             We are a family-owned bakery recently featured on the hit show
-            "Shark Tank". Decadent's humble beginnings started in 1990, in a
+            "Shark Tank". Decadent's humble beginnings started in 1990 in a
             small kitchen in Portsmouth, Virginia, filled with family, love and
             great family recipes. With customers like you, we can continue our
             tradition of great food and smiles around the dinner table. Don't
@@ -27,3 +24,11 @@ const AboutScreen = () => {
 };
 
 export default AboutScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: 28,
+  },
+});
